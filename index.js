@@ -1,7 +1,6 @@
 const getFireStoreProp = (value) => {
-  const props = ['referenceValue', 'nullValue', 'booleanValue', 'stringValue', 'timestampValue', 'arrayValue', 'mapValue', 'geoPointValue', 'integerValue']
-  let k = Object.keys(value)[0]
-  return props.indexOf(k) !== -1 ? k : null
+  const props = ['arrayValue', 'booleanValue', 'geoPointValue', 'integerValue', 'mapValue', 'nullValue', 'referenceValue', 'stringValue', 'timestampValue']
+  return Object.keys(value).find(k => props.indexOf(k) !== -1)
 }
 
 export const FireStoreParser = (value) => {
@@ -11,8 +10,11 @@ export const FireStoreParser = (value) => {
   }
   const prop = getFireStoreProp(value)
   if (prop) {
-    if (prop === 'arrayValue') {
-      value = value[prop].values
+    if (prop === 'integerValue') {
+      return Number(value[prop])
+    }
+    else if (prop === 'arrayValue') {
+      return value[prop].values.map(v => FireStoreParser(v))
     }
     else if (prop === 'mapValue') {
       value = value[prop].fields

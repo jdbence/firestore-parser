@@ -7,17 +7,15 @@ module.exports = {
     libraryTarget: 'commonjs2'
   },
   module: {
-    rules: [
-      {
-        test: /\.js$/,
-        exclude: /(node_modules|build)/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['env']
-          }
+    rules: [{
+      test: /\.js$/,
+      exclude: /(node_modules|build)/,
+      use: {
+        loader: 'babel-loader',
+        options: {
+          presets: ['env']
         }
       }
-    ]
+    }]
   }
 };

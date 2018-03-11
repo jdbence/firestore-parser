@@ -1,10 +1,10 @@
 {
   "name": "firestore-parser",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "Parse the Firestore REST API endpoint JSON into a useable JS object",
   "main": "index.js",
   "scripts": {
-    "test": "test",
+    "test": "jest",
     "start": "webpack --watch --mode development",
     "build": "webpack --mode production"
   },
@@ -26,9 +26,13 @@
   "homepage": "https://github.com/jdbence/firestore-parser#readme",
   "devDependencies": {
     "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-jest": "^22.4.1",
     "babel-loader": "^7.1.4",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.6.1",
+    "jest": "^22.4.2",
+    "regenerator-runtime": "^0.11.1",
     "webpack": "^4.1.1",
     "webpack-cli": "^2.0.11"
   }
