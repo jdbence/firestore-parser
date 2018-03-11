@@ -1,6 +1,6 @@
 {
   "name": "firestore-parser",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "Parse the Firestore REST API endpoint JSON into a useable JS object",
   "main": "index.js",
   "scripts": {

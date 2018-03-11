@@ -1,9 +1,9 @@
-const getFireStoreProp = (value) => {
+const getFireStoreProp = value => {
   const props = ['arrayValue', 'booleanValue', 'geoPointValue', 'integerValue', 'mapValue', 'nullValue', 'referenceValue', 'stringValue', 'timestampValue']
   return Object.keys(value).find(k => props.indexOf(k) !== -1)
 }
 
-export const FireStoreParser = (value) => {
+export const FireStoreParser = value => {
   const prop = getFireStoreProp(value)
   if (prop === 'integerValue') {
     value = Number(value[prop])
