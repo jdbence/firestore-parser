@@ -48,5 +48,5 @@ jobs:
             ./cc-test-reporter after-build --exit-code $?
           environment:
             JEST_JUNIT_OUTPUT: "coverage/junit/js-test-results.xml"
-            - store_test_results:
-              path: coverage/junit
+      - store_test_results:
+        path: coverage/junit
