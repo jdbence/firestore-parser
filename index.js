@@ -23,13 +23,8 @@ export const FireStoreParser = (value) => {
     }
   }
   else if (typeof value === 'object') {
-    const obj = {};
-    Object.keys(value).forEach(k => {
-      obj[k] = FireStoreParser(value[k])
-    })
-    value = obj
+    Object.keys(value).forEach(k => value[k] = FireStoreParser(value[k]))
   }
-
   return value;
 }
 export default FireStoreParser
