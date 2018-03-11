@@ -4,7 +4,8 @@
   "description": "Parse the Firestore REST API endpoint JSON into a useable JS object",
   "main": "index.js",
   "scripts": {
-    "test": "jest --env=jsdom --coverage --testResultsProcessor ./node_modules/jest-junit",
+    "test": "jest --coverage",
+    "coverage": "jest --env=jsdom --coverage --testResultsProcessor ./node_modules/jest-junit",
     "start": "webpack --watch --mode development",
     "build": "webpack --mode production"
   },
