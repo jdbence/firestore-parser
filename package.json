@@ -4,7 +4,7 @@
   "description": "Parse the Firestore REST API endpoint JSON into a useable JS object",
   "main": "index.js",
   "scripts": {
-    "test": "jest --coverage",
+    "test": "jest --env=jsdom --coverage --testResultsProcessor ./node_modules/jest-junit",
     "start": "webpack --watch --mode development",
     "build": "webpack --mode production"
   },
@@ -32,6 +32,7 @@
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "jest": "^22.4.2",
+    "jest-junit": "^3.6.0",
     "regenerator-runtime": "^0.11.1",
     "webpack": "^4.1.1",
     "webpack-cli": "^2.0.11"
