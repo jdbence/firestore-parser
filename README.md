@@ -11,16 +11,38 @@ Parse the Firestore REST API endpoint JSON into a useable JS object
 ### Examples
 ```JS
   import FireStoreParser from 'firestore-parser'
-  const json = {
-    "obj": {
-      "mapValue": {
-        "fields": {
-          "string": {
-            "stringValue": "def"
+  const json = {"hello":"world"}
+  console.log(FireStoreParser(json))
+```
+### Data Structure
+<table>
+  <tr>
+    <th>Firestore JSON</th>
+    <th>firestore-parser</th>
+  </tr>
+<tr>
+  <td>
+    <pre>
+      {
+        "obj": {
+          "mapValue": {
+            "fields": {
+              "string": {
+                "stringValue": "def"
+              }
+            }
           }
         }
       }
-    }
-  }
-  console.log(FireStoreParser(json))
-```
+    </pre>
+  </td>
+  <td>
+    <pre>
+      {
+        "obj": {
+          "string": "def"
+        }
+      }
+    </pre>
+  </td>
+</tr>
