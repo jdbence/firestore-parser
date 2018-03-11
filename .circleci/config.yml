@@ -49,4 +49,4 @@ jobs:
           environment:
             JEST_JUNIT_OUTPUT: "coverage/junit/js-test-results.xml"
       - store_test_results:
-        path: coverage/junit
+          path: coverage/junit
