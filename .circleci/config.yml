@@ -34,17 +34,16 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
         
       # run tests!
-      - run: yarn test
       - run:
-          name: Setup Code Climate test reporter
+          name: Setup Code Climate Test Reporter
           command: |
             curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
             chmod +x ./cc-test-reporter
       - run:
-          name: Unit tests with coverage
+          name: Unit Tests With Coverage
           command: |
             ./cc-test-reporter before-build
-            npm run coverage
+            yarn coverage
             ./cc-test-reporter after-build --exit-code $?
           environment:
             JEST_JUNIT_OUTPUT: "coverage/junit/js-test-results.xml"

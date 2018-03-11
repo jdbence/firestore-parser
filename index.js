@@ -4,33 +4,32 @@ const getFireStoreProp = (value) => {
 }
 
 export const FireStoreParser = (value) => {
-  const type = typeof value
-  if (value === null || type === 'number' || type === 'string') {
-    return value
-  }
   const prop = getFireStoreProp(value)
   if (prop) {
     if (prop === 'integerValue') {
-      return Number(value[prop])
+      value = Number(value[prop])
     }
     else if (prop === 'arrayValue') {
-      return value[prop].values.map(v => FireStoreParser(v))
+      value = value[prop].values.map(v => FireStoreParser(v))
     }
     else if (prop === 'mapValue') {
-      value = value[prop].fields
+      value = FireStoreParser(value[prop].fields)
     }
     else if (prop === 'geoPointValue') {
-      return { latitude: 0, longitude: 0, ...value[prop] }
+      value = { latitude: 0, longitude: 0, ...value[prop] }
     }
     else {
-      return value[prop]
+      value = value[prop]
     }
   }
+  else if (typeof value === 'object') {
+    const obj = {};
+    Object.keys(value).forEach(k => {
+      obj[k] = FireStoreParser(value[k])
+    })
+    value = obj
+  }
 
-  const obj = {};
-  Object.keys(value).forEach(k => {
-    obj[k] = FireStoreParser(value[k])
-  });
-  return obj;
+  return value;
 }
 export default FireStoreParser
