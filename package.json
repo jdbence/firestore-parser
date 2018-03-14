@@ -1,8 +1,8 @@
 {
   "name": "firestore-parser",
-  "version": "0.8.1",
+  "version": "0.8.2",
   "description": "Parse the Firestore REST API endpoint JSON into a useable JS object",
-  "main": "index.js",
+  "main": "./build/index.js",
   "scripts": {
     "test": "jest --coverage",
     "coverage": "jest --env=jsdom --coverage --testResultsProcessor ./node_modules/jest-junit",
