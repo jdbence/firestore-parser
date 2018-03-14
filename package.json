@@ -20,7 +20,7 @@
     "Rest"
   ],
   "author": "Joshua Bence",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/jdbence/firestore-parser/issues"
   },
