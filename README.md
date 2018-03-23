@@ -12,8 +12,9 @@ Parse the Firestore REST API endpoint JSON into a useable JS object
 ```
 
 ## Examples
-
+[Live Example](https://repl.it/@jdbence/firestore-parser-example-01)
 ```JS
+  // const FireStoreParser = require('firestore-parser');
   import FireStoreParser from 'firestore-parser'
   const projectID = '[PROJECT_ID]'
   const key = '[API_KEY]'

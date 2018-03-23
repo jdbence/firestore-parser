@@ -4,7 +4,8 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'build'),
     filename: 'index.js',
-    libraryTarget: 'commonjs2'
+    libraryTarget: 'commonjs2',
+    libraryExport: 'default'
   },
   module: {
     rules: [{
