@@ -27,15 +27,19 @@
   "homepage": "https://github.com/jdbence/firestore-parser#readme",
   "devDependencies": {
     "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.0",
-    "babel-jest": "^22.4.1",
-    "babel-loader": "^7.1.4",
+    "babel-core": "^6.26.3",
+    "babel-jest": "^23.4.2",
+    "babel-loader": "^7.1.5",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
-    "jest": "^22.4.2",
-    "jest-junit": "^3.6.0",
-    "regenerator-runtime": "^0.11.1",
-    "webpack": "^4.1.1",
-    "webpack-cli": "^2.0.11"
+    "babel-preset-env": "^1.7.0",
+    "jest": "^23.5.0",
+    "jest-junit": "^5.1.0",
+    "regenerator-runtime": "^0.12.1",
+    "webpack": "^4.17.1",
+    "webpack-cli": "^3.1.0"
+  },
+  "jest": {
+    "testPathIgnorePatterns": ["/node_modules/", ".c9"],
+    "testEnvironment": "node"
   }
 }
