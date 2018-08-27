@@ -184,3 +184,11 @@ test('Array match', () => {
     }
   })).toEqual({ "array": ["cat", "dog"] });
 });
+
+test('Array match with no values', () => {
+  expect(FireStoreParser({
+    "array": {
+      "arrayValue": {}
+    }
+  })).toEqual({ "array": [] });
+});

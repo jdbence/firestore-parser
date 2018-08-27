@@ -9,7 +9,7 @@ export const FireStoreParser = value => {
     value = Number(value[prop])
   }
   else if (prop === 'arrayValue') {
-    value = value[prop].values.map(v => FireStoreParser(v))
+    value = (value[prop].values || []).map(v => FireStoreParser(v))
   }
   else if (prop === 'mapValue') {
     value = FireStoreParser(value[prop].fields)
