@@ -53,7 +53,7 @@ The Firestore JSON returned in the REST API, uses value type as keys. This can b
 	}
 }
 ```
-#### JSON parsered with firestore-parser
+#### JSON parsed with firestore-parser
 ```
 {
 	"player": {
