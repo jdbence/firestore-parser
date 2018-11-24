@@ -14,7 +14,10 @@ Parse the [Firestore REST API](https://firebase.google.com/docs/firestore/refere
 ## Examples
 [Live Example](https://repl.it/@jdbence/firestore-parser-example-01)
 ```JS
+  // Node/AMD: 
   // const FireStoreParser = require('firestore-parser');
+  // Node with TypeScript:
+  // import * as FireStoreParser from 'firestore-parser';
   import FireStoreParser from 'firestore-parser'
   const projectID = 'PROJECT_ID'
   const key = 'API_KEY'
