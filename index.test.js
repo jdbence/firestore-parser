@@ -169,6 +169,14 @@ test('Object match', () => {
   })).toEqual({ "obj": { "string": "def" } });
 });
 
+test('Object match with no values', () => {
+  expect(FireStoreParser({
+    "obj": {
+      "mapValue": {}
+    }
+  })).toEqual({ "obj": {} });
+});
+
 test('Array match', () => {
   expect(FireStoreParser({
     "array": {
