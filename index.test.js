@@ -18,6 +18,9 @@ const testData = {
         ]
       }
     },
+    "array2": {
+      "arrayValue": {}
+    },
     "timestamp": {
       "timestampValue": "2018-03-11T08:00:00Z"
     },
@@ -65,6 +68,7 @@ test('Complex JS object match', () => {
         "cat",
         "dog"
       ],
+      "array2": [],
       "bool": true,
       "geo": {
         "latitude": 10,
