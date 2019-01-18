@@ -1,6 +1,13 @@
 const getFireStoreProp = value => {
   const props = { 'arrayValue': 1, 'booleanValue': 1, 'geoPointValue': 1, 'integerValue': 1, 'mapValue': 1, 'nullValue': 1, 'referenceValue': 1, 'stringValue': 1, 'timestampValue': 1 }
-  return Object.keys(value).find(k => props[k] === 1)
+  let val;
+  for(let key in value) {
+    if(props[key] === 1) {
+      val = key;
+      break;
+    }
+  }
+  return val
 }
 
 export const FireStoreParser = value => {
