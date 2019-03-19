@@ -7,6 +7,9 @@ const testData = {
     "number": {
       "integerValue": "123"
     },
+    "double": {
+      "doubleValue": "123"
+    },
     "array": {
       "arrayValue": {
         "values": [{
@@ -76,6 +79,7 @@ test('Complex JS object match', () => {
       },
       "isNull": null,
       "number": 123,
+      "double": 123,
       "obj": {
         "string": "def"
       },
@@ -157,6 +161,14 @@ test('integer match', () => {
       "integerValue": "123"
     }
   })).toEqual({ "number": 123 });
+});
+
+test('double match', () => {
+  expect(FireStoreParser({
+    "double": {
+      "doubleValue": "123"
+    }
+  })).toEqual({ "double": 123 });
 });
 
 test('Object match', () => {
