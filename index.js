@@ -1,11 +1,11 @@
 const getFireStoreProp = value => {
-  const props = { 'arrayValue': 1, 'booleanValue': 1, 'geoPointValue': 1, 'integerValue': 1, 'mapValue': 1, 'nullValue': 1, 'referenceValue': 1, 'stringValue': 1, 'timestampValue': 1 }
+  const props = { 'arrayValue': 1, 'bytesValue': 1, 'booleanValue': 1, 'doubleValue': 1, 'geoPointValue': 1, 'integerValue': 1, 'mapValue': 1, 'nullValue': 1, 'referenceValue': 1, 'stringValue': 1, 'timestampValue': 1 }
   return Object.keys(value).find(k => props[k] === 1)
 }
 
 export const FireStoreParser = value => {
   const prop = getFireStoreProp(value)
-  if (prop === 'integerValue') {
+  if (prop === 'doubleValue' || prop === 'integerValue') {
     value = Number(value[prop])
   }
   else if (prop === 'arrayValue') {

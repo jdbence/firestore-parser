@@ -4,6 +4,9 @@ import FireStoreParser from './index'
 const testData = {
   "name": "some/large/long/value",
   "fields": {
+    "double": {
+      "doubleValue": "456"
+    },
     "number": {
       "integerValue": "123"
     },
@@ -17,6 +20,9 @@ const testData = {
           }
         ]
       }
+    },
+    "array2": {
+      "arrayValue": {}
     },
     "timestamp": {
       "timestampValue": "2018-03-11T08:00:00Z"
@@ -32,6 +38,9 @@ const testData = {
     },
     "bool": {
       "booleanValue": true
+    },
+    "bytes": {
+      "bytesValue": "bWFkZSB0aGUgS2Vzc2VsIFJ1biBpbiBsZXNzIHRoYW4gdHdlbHZlIHBhcnNlY3M="
     },
     "string": {
       "stringValue": "abc"
@@ -51,7 +60,7 @@ const testData = {
   },
   "createTime": "2018-03-11T14:10:11.083793Z",
   "updateTime": "2018-03-11T14:10:11.083793Z"
-}
+};
 
 test('Simple JS object match', () => {
   expect(FireStoreParser({ data: "" })).toEqual({ data: "" });
@@ -65,22 +74,35 @@ test('Complex JS object match', () => {
         "cat",
         "dog"
       ],
+      "array2": [],
       "bool": true,
       "geo": {
         "latitude": 10,
         "longitude": 30
       },
       "isNull": null,
+      "double": 456,
       "number": 123,
       "obj": {
         "string": "def"
       },
       "ref": "some/large/long/value",
+      "bytes": "bWFkZSB0aGUgS2Vzc2VsIFJ1biBpbiBsZXNzIHRoYW4gdHdlbHZlIHBhcnNlY3M=",
       "string": "abc",
       "timestamp": "2018-03-11T08:00:00Z"
     },
     "name": "some/large/long/value",
     "updateTime": "2018-03-11T14:10:11.083793Z"
+  });
+});
+
+test('Bytes match', () => {
+  expect(FireStoreParser({
+    encoded: {
+      bytesValue: "bHVrZWlhbXlvdXJmYXRoZXI="
+    }
+  })).toEqual({
+    encoded: "bHVrZWlhbXlvdXJmYXRoZXI="
   });
 });
 
@@ -145,6 +167,14 @@ test('boolean match', () => {
       "booleanValue": true
     }
   })).toEqual({ "bool": true });
+});
+
+test('double match', () => {
+  expect(FireStoreParser({
+    "double": {
+      "doubleValue": "456"
+    }
+  })).toEqual({ "double": 456 });
 });
 
 test('integer match', () => {
