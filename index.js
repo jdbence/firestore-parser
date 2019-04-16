@@ -9,10 +9,10 @@ export const FireStoreParser = value => {
     value = Number(value[prop])
   }
   else if (prop === 'arrayValue') {
-    value = (value[prop].values || []).map(v => FireStoreParser(v))
+    value = (value[prop] && value[prop].values || []).map(v => FireStoreParser(v))
   }
   else if (prop === 'mapValue') {
-    value = FireStoreParser(value[prop].fields || {})
+    value = FireStoreParser(value[prop] && value[prop].fields || {})
   }
   else if (prop === 'geoPointValue') {
     value = { latitude: 0, longitude: 0, ...value[prop] }
