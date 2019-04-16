@@ -207,6 +207,14 @@ test('Object match with no values', () => {
   })).toEqual({ "obj": {} });
 });
 
+test('Object match with undefined value', () => {
+  expect(FireStoreParser({
+    "obj": {
+      "mapValue": undefined
+    }
+  })).toEqual({ "obj": {} });
+});
+
 test('Array match', () => {
   expect(FireStoreParser({
     "array": {
@@ -227,6 +235,14 @@ test('Array match with no values', () => {
   expect(FireStoreParser({
     "array": {
       "arrayValue": {}
+    }
+  })).toEqual({ "array": [] });
+});
+
+test('Array match with undefined value', () => {
+  expect(FireStoreParser({
+    "array": {
+      "arrayValue": undefined
     }
   })).toEqual({ "array": [] });
 });
