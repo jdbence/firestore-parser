@@ -1,11 +1,11 @@
 {
   "name": "firestore-parser",
-  "version": "0.8.8",
+  "version": "0.8.9",
   "description": "Parse the Firestore REST API endpoint JSON into a useable JS object",
   "main": "./build/index.js",
   "scripts": {
     "test": "jest --coverage",
-    "coverage": "jest --env=jsdom --coverage --testResultsProcessor ./node_modules/jest-junit",
+    "coverage": "jest --env=jsdom --ci --coverage --reporters=default --reporters=jest-junit ./node_modules/jest-junit",
     "start": "webpack --watch --mode development",
     "build": "webpack --mode production"
   },
@@ -26,20 +26,23 @@
   },
   "homepage": "https://github.com/jdbence/firestore-parser#readme",
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.3",
-    "babel-jest": "^23.4.2",
-    "babel-loader": "^7.1.5",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
-    "jest": "^23.5.0",
-    "jest-junit": "^5.1.0",
-    "regenerator-runtime": "^0.12.1",
-    "webpack": "^4.17.1",
-    "webpack-cli": "^3.1.0"
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5",
+    "@babel/plugin-proposal-object-rest-spread": "^7.4.4",
+    "@babel/preset-env": "^7.4.5",
+    "babel-jest": "^24.8.0",
+    "babel-loader": "^8.0.6",
+    "jest": "^24.8.0",
+    "jest-junit": "^6.4.0",
+    "regenerator-runtime": "^0.13.2",
+    "webpack": "^4.35.0",
+    "webpack-cli": "^3.3.4"
   },
   "jest": {
-    "testPathIgnorePatterns": ["/node_modules/", ".c9"],
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      ".c9"
+    ],
     "testEnvironment": "node"
   }
 }
