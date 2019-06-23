@@ -5,7 +5,7 @@
   "main": "./build/index.js",
   "scripts": {
     "test": "jest --coverage",
-    "coverage": "jest --env=jsdom --ci --reporters=default --reporters=jest-junit ./node_modules/jest-junit",
+    "coverage": "jest --env=jsdom --ci --coverage --reporters=default --reporters=jest-junit ./node_modules/jest-junit",
     "start": "webpack --watch --mode development",
     "build": "webpack --mode production"
   },
